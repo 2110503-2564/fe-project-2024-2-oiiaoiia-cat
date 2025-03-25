@@ -15,8 +15,16 @@ interface DentistItem {
   }
 
   interface BookingItem {
-    nameLastname: string;
-    tel: string;
-    venue: string;
-    bookDate: string;
+    _id: string,
+    bookingDate: string;
+    user: string,
+    dentist: DentistItem,
+    createdAt: string,
+    __v: number
+  }
+
+  interface BookingJson {
+    success: boolean,
+    count: number,
+    data: BookingItem[]
   }

@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { ClassNames } from "@emotion/react";
 import Card from "./Card";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
+import { getServerSession } from "next-auth";
+import getUserProfile from "@/libs/getUserProfile";
 
 export default async function DentistList({
   dentistJson,
@@ -8,6 +11,12 @@ export default async function DentistList({
   dentistJson: Promise<DentistJson>;
 }) {
   const dentistJsonReady = await dentistJson;
+
+  const session = await getServerSession(authOptions);
+  if(!session || !session.user.token) return null;
+    
+  const profile = await getUserProfile(session.user.token);
+  console.log(profile);
 
   return (
     <div className="text-black">

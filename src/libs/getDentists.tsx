@@ -1,6 +1,5 @@
 export default async function getDentists() {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 300)); // Simulated delay
   
       const response = await fetch(
         "https://dentist-backend-zeta.vercel.app/api/v1/dentists"
