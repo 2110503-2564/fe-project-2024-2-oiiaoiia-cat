@@ -27,11 +27,11 @@ export default function Card({
         <div className="text-left">Experience: {dentist.yearsOfExp} years</div>
         <div className="text-left">Expertise: {dentist.areaOfExpertise}</div>
       </div>
-      <button className="mt-3 w-[70%] bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition-all duration-300"
+      {/* <button className="mt-3 w-[70%] bg-blue-500 text-white font-semibold py-2 rounded-lg hover:bg-blue-600 transition-all duration-300"
             onClick={(e)=>{e.stopPropagation(); router.push(`/booking?did=${dentist._id}&dname=${dentist.name}`)}}
             >
                 Select Dentist
-            </button>
+            </button> */}
       
     </InteractiveCard>
   );

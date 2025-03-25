@@ -13,7 +13,7 @@ export default function BookingForm({
   dentists,
   token,
 }: {
-  user: Object;
+  user: User;
   dentists: DentistJson;
   token: string;
 }) {

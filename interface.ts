@@ -28,3 +28,16 @@ interface DentistItem {
     count: number,
     data: BookingItem[]
   }
+
+  interface User{
+    success: boolean,
+    data: {
+        _id: string,
+        name: string,
+        tel: string,
+        email: string,
+        role: string,
+        createdAt: string,
+        __v: number
+    }
+}
