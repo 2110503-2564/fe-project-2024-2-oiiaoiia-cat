@@ -1,6 +1,6 @@
 interface DentistItem {
     _id: string,
-    name: string,
+    name: string|null|undefined,
     yearsOfExp: number,
     areaOfExpertise: string,
     __v: number,
