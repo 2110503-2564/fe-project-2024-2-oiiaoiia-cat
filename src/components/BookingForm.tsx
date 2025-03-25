@@ -11,19 +11,25 @@ import { useState } from "react";
 export default function BookingForm({
   user,
   dentists,
+  bookings,
   token,
 }: {
   user: User;
   dentists: DentistJson;
+  bookings: BookingJson;
   token: string;
 }) {
   const [bookingDate, setBookingDate] = useState<Dayjs | null>(null);
   const [dentist, setDentist] = useState<string | null>(null);
 
   const makeBooking = () => {
+    if(bookings.count>=1 && user.data.role!=="admin"){
+      alert("Can't book more than once.")
+      return;
+    }
     if (bookingDate && dentist) {
-      postBooking(token,dentist,bookingDate.toString());
-      alert("booked");
+      postBooking(token, dentist, bookingDate.toString());
+      alert("book success.");
     }
   };
 
@@ -57,7 +63,11 @@ export default function BookingForm({
             </MenuItem>
           ))}
         </Select>
-        <Button variant="contained" name="Book Appointment" onClick={makeBooking}>
+        <Button
+          variant="contained"
+          name="Book Appointment"
+          onClick={makeBooking}
+        >
           Book Appointment
         </Button>
       </form>
